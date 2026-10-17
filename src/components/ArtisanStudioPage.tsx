@@ -34,7 +34,7 @@ export const ArtisanStudioPage: React.FC = () => {
   const [sustainableAspect, setSustainableAspect] = useState('100% natural vegetable dyes, zero electricity handloom');
   const [description, setDescription] = useState('');
   const [isListeningVoice, setIsListeningVoice] = useState(false);
-  const [imageSelection, setImageSelection] = useState('/src/assets/images/product_pochampally_ikat_1792066860036.jpg');
+  const [imageSelection, setImageSelection] = useState('/images/product_pochampally_ikat_1792066860036.jpg');
 
   // Compute breakdown dynamically
   const platformFee = Math.round(makerPriceInput * 0.05);
@@ -381,9 +381,9 @@ export const ArtisanStudioPage: React.FC = () => {
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { id: '/src/assets/images/product_pochampally_ikat_1792066860036.jpg', label: 'Pochampally Weave' },
-                  { id: '/src/assets/images/product_kondapalli_toys_1792066861038.jpg', label: 'Kondapalli Wood' },
-                  { id: '/src/assets/images/product_bamboo_raw_material_1792066860431.jpg', label: 'Bamboo & Shells' },
+                  { id: '/images/product_pochampally_ikat_1792066860036.jpg', label: 'Pochampally Weave' },
+                  { id: '/images/product_kondapalli_toys_1792066861038.jpg', label: 'Kondapalli Wood' },
+                  { id: '/images/product_bamboo_raw_material_1792066860431.jpg', label: 'Bamboo & Shells' },
                 ].map((img) => (
                   <div
                     key={img.id}

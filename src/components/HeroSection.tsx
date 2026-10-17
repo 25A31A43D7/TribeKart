@@ -10,7 +10,7 @@ export const HeroSection: React.FC = () => {
       {/* Background with Workbench image & high-legibility dark overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_artisan_workbench_1792066859645.jpg"
+          src="/images/hero_artisan_workbench_1792066859645.jpg"
           alt="Artisan workbench with tools, natural fibers, and craft supplies"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center"

@@ -43,7 +43,7 @@ export const ShopCategoriesSection: React.FC = () => {
         >
           <div className="relative h-64 overflow-hidden bg-[#DDD5C7]">
             <img
-              src="/src/assets/images/product_bamboo_raw_material_1792066860431.jpg"
+              src="/images/product_bamboo_raw_material_1792066860431.jpg"
               alt="Raw bamboo stalks, split cane, and coconut shells"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
@@ -91,7 +91,7 @@ export const ShopCategoriesSection: React.FC = () => {
         >
           <div className="relative h-64 overflow-hidden bg-[#DDD5C7]">
             <img
-              src="/src/assets/images/product_pochampally_ikat_1792066860036.jpg"
+              src="/images/product_pochampally_ikat_1792066860036.jpg"
               alt="Handwoven Pochampally Ikat silk saree"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
