@@ -1,0 +1,6 @@
+{
+  "name": "TribeKart - Inclusive Artisan & Raw Material Marketplace",
+  "description": "An inclusive marketplace for raw materials, tribal handmade products, and rural employment connecting artisans, suppliers, workers, and conscious consumers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
