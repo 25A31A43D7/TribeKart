@@ -119,6 +119,12 @@ export const WishlistPage: React.FC = () => {
                     src={product.image}
                     alt={product.name}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.endsWith('product_pochampally_ikat_1792066860036.jpg')) {
+                        target.src = '/images/product_pochampally_ikat_1792066860036.jpg';
+                      }
+                    }}
                     className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
                   />
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 text-[11px] font-medium text-white/95 bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded-sm">

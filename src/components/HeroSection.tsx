@@ -13,6 +13,12 @@ export const HeroSection: React.FC = () => {
           src="/images/hero_artisan_workbench_1792066859645.jpg"
           alt="Artisan workbench with tools, natural fibers, and craft supplies"
           referrerPolicy="no-referrer"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (!target.src.endsWith('product_pochampally_ikat_1792066860036.jpg')) {
+              target.src = '/images/product_pochampally_ikat_1792066860036.jpg';
+            }
+          }}
           className="w-full h-full object-cover object-center"
         />
         {/* Measured dark scrim for WCAG AA readability */}

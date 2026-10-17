@@ -10,6 +10,7 @@ export const FeaturedCraftsSection: React.FC = () => {
   const filteredProducts = products.filter((p) => {
     if (filter === 'all') return true;
     if (filter === 'raw_material') return p.type === 'raw_material';
+    if (filter === 'Tribal Decor') return p.category === 'Tribal Decor' || p.category === 'Recycled Crafts';
     return p.category === filter;
   });
 

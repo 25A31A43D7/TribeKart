@@ -146,6 +146,12 @@ export const Navbar: React.FC = () => {
                 src={currentUser.avatar}
                 alt={currentUser.name}
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.src.endsWith('avatar_customer_aarav.jpg')) {
+                    target.src = '/images/avatar_customer_aarav.jpg';
+                  }
+                }}
                 className="w-8 h-8 rounded-full object-cover border border-[#D5CCC0]"
               />
               <span className="text-sm font-medium text-[#1E3023] hidden sm:inline whitespace-nowrap">

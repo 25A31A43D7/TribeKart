@@ -46,6 +46,12 @@ export const ShopCategoriesSection: React.FC = () => {
               src="/images/product_bamboo_raw_material_1792066860431.jpg"
               alt="Raw bamboo stalks, split cane, and coconut shells"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.endsWith('product_bamboo_raw_material_1792066860431.jpg')) {
+                  target.src = '/images/product_bamboo_raw_material_1792066860431.jpg';
+                }
+              }}
               className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -94,6 +100,12 @@ export const ShopCategoriesSection: React.FC = () => {
               src="/images/product_pochampally_ikat_1792066860036.jpg"
               alt="Handwoven Pochampally Ikat silk saree"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.endsWith('product_pochampally_ikat_1792066860036.jpg')) {
+                  target.src = '/images/product_pochampally_ikat_1792066860036.jpg';
+                }
+              }}
               className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

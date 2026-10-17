@@ -131,6 +131,12 @@ export const MyOrdersPage: React.FC = () => {
                         <img
                           src={item.image}
                           alt={item.name}
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            if (!target.src.endsWith('product_pochampally_ikat_1792066860036.jpg')) {
+                              target.src = '/images/product_pochampally_ikat_1792066860036.jpg';
+                            }
+                          }}
                           className="w-16 h-16 rounded-xl object-cover bg-[#ECE6DC] border border-[#DDD5C7]"
                         />
                         <div>

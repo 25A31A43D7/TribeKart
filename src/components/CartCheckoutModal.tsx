@@ -122,6 +122,12 @@ export const CartCheckoutModal: React.FC = () => {
                   <img
                     src={item.product.image}
                     alt={item.product.name}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.endsWith('product_pochampally_ikat_1792066860036.jpg')) {
+                        target.src = '/images/product_pochampally_ikat_1792066860036.jpg';
+                      }
+                    }}
                     className="w-20 h-20 rounded-lg object-cover bg-[#ECE6DC] shrink-0"
                   />
 

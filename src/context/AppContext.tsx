@@ -102,13 +102,18 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Persistent States with versioning to ensure latest authentic products & photos
   const [products, setProducts] = useState<Product[]>(() => {
-    const saved = localStorage.getItem('tribekart_products_v3');
+    const saved = localStorage.getItem('tribekart_products_v5');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        const userCustom = parsed.filter(
-          (p: Product) => !INITIAL_PRODUCTS.some((ip) => ip.id === p.id)
-        );
+        const userCustom = parsed
+          .filter((p: Product) => !INITIAL_PRODUCTS.some((ip) => ip.id === p.id))
+          .map((p: Product) => ({
+            ...p,
+            image: p.image?.startsWith('/src/assets/images/')
+              ? p.image.replace('/src/assets/images/', '/images/')
+              : p.image,
+          }));
         return [...INITIAL_PRODUCTS, ...userCustom];
       } catch (e) {
         return INITIAL_PRODUCTS;
@@ -124,12 +129,44 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [orders, setOrders] = useState<Order[]>(() => {
     const saved = localStorage.getItem('tribekart_orders');
-    return saved ? JSON.parse(saved) : INITIAL_ORDERS;
+    if (saved) {
+      try {
+        const parsed: Order[] = JSON.parse(saved);
+        return parsed.map((ord) => ({
+          ...ord,
+          items: ord.items.map((item) => ({
+            ...item,
+            image: item.image?.startsWith('/src/assets/images/')
+              ? item.image.replace('/src/assets/images/', '/images/')
+              : item.image,
+          })),
+        }));
+      } catch {
+        return INITIAL_ORDERS;
+      }
+    }
+    return INITIAL_ORDERS;
   });
 
   const [cart, setCart] = useState<CartItem[]>(() => {
     const saved = localStorage.getItem('tribekart_cart');
-    return saved ? JSON.parse(saved) : [];
+    if (saved) {
+      try {
+        const parsed: CartItem[] = JSON.parse(saved);
+        return parsed.map((item) => ({
+          ...item,
+          product: {
+            ...item.product,
+            image: item.product.image?.startsWith('/src/assets/images/')
+              ? item.product.image.replace('/src/assets/images/', '/images/')
+              : item.product.image,
+          },
+        }));
+      } catch {
+        return [];
+      }
+    }
+    return [];
   });
 
   const [wishlist, setWishlist] = useState<string[]>(() => {
@@ -145,7 +182,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   useEffect(() => {
-    localStorage.setItem('tribekart_products_v3', JSON.stringify(products));
+    localStorage.setItem('tribekart_products_v5', JSON.stringify(products));
   }, [products]);
 
   useEffect(() => {

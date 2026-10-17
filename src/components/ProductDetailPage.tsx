@@ -165,6 +165,12 @@ export const ProductDetailPage: React.FC = () => {
               src={product.image}
               alt={product.name}
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.endsWith('product_pochampally_ikat_1792066860036.jpg')) {
+                  target.src = '/images/product_pochampally_ikat_1792066860036.jpg';
+                }
+              }}
               className="w-full h-full object-cover"
             />
             
@@ -184,6 +190,12 @@ export const ProductDetailPage: React.FC = () => {
                   src={product.makerAvatar}
                   alt={product.makerName}
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.src.endsWith('artisan_portrait_weaver_1792066860861.jpg')) {
+                      target.src = '/images/artisan_portrait_weaver_1792066860861.jpg';
+                    }
+                  }}
                   className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-xs"
                 />
                 <div>

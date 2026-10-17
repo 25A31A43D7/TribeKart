@@ -129,6 +129,12 @@ export const ArtisanProfilesPage: React.FC = () => {
                     src={artisan.image}
                     alt={artisan.name}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.endsWith('artisan_portrait_weaver_1792066860861.jpg')) {
+                        target.src = '/images/artisan_portrait_weaver_1792066860861.jpg';
+                      }
+                    }}
                     className="w-full h-full object-cover"
                   />
                 </div>

@@ -265,7 +265,17 @@ export const AdminDashboardPage: React.FC = () => {
                 className="p-4 rounded-xl border border-[#EDE7DD] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs"
               >
                 <div className="flex items-center gap-3">
-                  <img src={p.image} alt={p.name} className="w-12 h-12 rounded-lg object-cover bg-[#ECE6DC]" />
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.endsWith('product_pochampally_ikat_1792066860036.jpg')) {
+                        target.src = '/images/product_pochampally_ikat_1792066860036.jpg';
+                      }
+                    }}
+                    className="w-12 h-12 rounded-lg object-cover bg-[#ECE6DC]"
+                  />
                   <div>
                     <h4 className="font-semibold text-sm text-[#1E3023] line-clamp-1">{p.name}</h4>
                     <p className="text-[#6F8273]">
